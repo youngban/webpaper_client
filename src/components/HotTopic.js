@@ -1,9 +1,18 @@
 import React from 'react';
+import fakeData from '../fakeData';
 
-const HotTopic = () => {
+const HotTopic = props => {
   return (
     <div>
-      <h1>HOTTOPICS</h1>
+      {fakeData.map(item => (
+        <div>
+          <img src={item.img}></img>
+          <div>
+            {item.name}
+            {props.name}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
