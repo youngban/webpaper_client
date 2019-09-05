@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link as Router } from 'react-router-dom';
 import Home from './components/Home';
 import Read from './components/Read';
+import Nav from './components/Nav';
 
 class App extends Component {
   constructor(props) {
@@ -13,8 +14,9 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <Nav></Nav>
           <Route exact path="/" component={Home} />
-          <Route path="/read" component={Read} />
+          <Route path="/read/:id" component={Read} />
         </div>
       </Router>
     );

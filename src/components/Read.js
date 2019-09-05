@@ -1,18 +1,19 @@
 import React from 'react';
-import Nav from './Nav';
-import Description from './Description';
+import TopicInfo from './TopicInfo';
 import ArticleList from './ArticleList';
 import CommentList from './CommentList';
 
-const TopicInfo = () => {
+const Read = ({ match }) => {
+  {
+    console.log('id가져오기', match.params);
+  }
   return (
     <div>
-      <Nav />
-      <Description />
+      <TopicInfo />
       <ArticleList />
       <CommentList />
     </div>
   );
 };
 
-export default TopicInfo;
+export default Read;
