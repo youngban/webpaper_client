@@ -6,13 +6,43 @@ class Category extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: 'all' //선택된 카테고리
+      category: [
+        'politics',
+        'economy',
+        'society',
+        'culture',
+        'world',
+        'entertain',
+        'sports'
+      ],
+      firstbtn: true,
+      btnstate: false
     };
   }
   //   선택된 category에 따라
   // state를 필터링해서 article 컴포넌트에 맵핑으로 뿌려줘야 됨.
-  getFilterCategoryNews = category => {
-    this.setState({ category: category });
+  getFilterCategoryNews = paracategory => {
+    if (this.state.firstbtn) {
+      this.setState({
+        category: [paracategory],
+        firstbtn: false,
+        btnstate: !this.state.btnstate
+      });
+    } else {
+      if (!this.state.category.includes(paracategory)) {
+        this.setState({
+          category: this.state.category.concat(paracategory)
+        });
+      } else {
+        for (let i = 0; i < this.state.category.length; i++) {
+          if (this.state.category[i] === paracategory) {
+            this.setState({
+              category: this.state.category.filter(str => str !== paracategory)
+            });
+          }
+        }
+      }
+    }
   };
   render() {
     return (
@@ -39,9 +69,6 @@ class Category extends Component {
           </button>
           <button onClick={e => this.getFilterCategoryNews('sports', e)}>
             스포츠
-          </button>
-          <button onClick={e => this.getFilterCategoryNews('all', e)}>
-            전체기사보기
           </button>
           <hr></hr>
           <Articles data={fakeData} category={this.state.category} />
