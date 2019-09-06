@@ -1,35 +1,35 @@
 const fakeData = [
   {
-    category: 'economy',
+    category: 'Entertainment',
     url:
       'https://news.naver.com/main/ranking/read.nhn?mid=etc&sid1=111&rankingType=popular_day&oid=009&aid=0004421545&date=20190903&type=1&rankingSeq=1&rankingSectionId=101',
     img:
       'https://imgnews.pstatic.net/image/009/2019/09/03/0004421545_002_20190903175512499.jpg?type=w647',
-    id: '1',
+    id: '5d7244b6e3cd041b94c46702',
     name: '마이너스 물가 잃어버린 20년',
     count: 0,
     keyword: ['마이너스 물가', '잃어버린 20년', '경기 침체'],
     editor: '유재석'
   },
   {
-    category: 'politics',
+    category: 'Business',
     url:
       'https://news.naver.com/main/ranking/read.nhn?mid=etc&sid1=111&rankingType=popular_day&oid=022&aid=0003394608&date=20190903&type=1&rankingSeq=1&rankingSectionId=100',
     img:
       'https://imgnews.pstatic.net/image/022/2019/09/03/20190903512942_20190903183310149.jpg?type=w647',
-    id: '2',
+    id: '5d7244b6e3cd041b94c46706',
     name: '조국 청문회 통과되나',
     count: 0,
     keyword: ['조국', '청문회', '법무부장관', '적폐'],
     editor: '김종국'
   },
   {
-    category: 'society',
+    category: 'Business',
     url:
       'https://news.naver.com/main/ranking/read.nhn?mid=etc&sid1=111&rankingType=popular_day&oid=469&aid=0000419229&date=20190903&type=1&rankingSeq=2&rankingSectionId=102',
     img:
       'https://imgnews.pstatic.net/image/469/2019/09/03/0000419229_001_20190903183746719.jpg?type=w647',
-    id: '3',
+    id: '5d7244b6e3cd041b94c4670b',
     name: '태풍 링링 진입중',
     count: 0,
     keyword: ['태풍', '링링', '최대 풍속', '예상 경로', '중심기압'],
