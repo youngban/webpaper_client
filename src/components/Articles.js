@@ -1,18 +1,25 @@
 import React from 'react';
 import './articles.css';
 const Articles = props => {
-  console.log(props.category);
+  //console.log(props.category);
   return (
     <div>
-      {props.data.map(item => (
-        <a key={item.id} item={item} href={item.url} className="articles">
-          {props.category === 'all'
-            ? item.name
-            : item.category === props.category
-            ? item.name
-            : ''}
-        </a>
-      ))}
+      {props.data.map(item => {
+        if (props.category.includes(item.category)) {
+          return (
+            <a href={item.url} key={item.id} data={item} className="articles">
+              {item.name}
+            </a>
+          );
+        }
+        if (props.category.length === 0) {
+          return (
+            <a href={item.url} key={item.id} data={item} className="articles">
+              {item.name}
+            </a>
+          );
+        }
+      })}
     </div>
   );
 };
