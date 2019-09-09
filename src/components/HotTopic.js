@@ -1,4 +1,3 @@
-import fakeData from '../fakeData';
 import { Link, Route } from 'react-router-dom';
 import Axios from 'axios';
 import React, { Component } from 'react';
@@ -21,12 +20,12 @@ class HotTopic extends Component {
     return (
       <div>
         {this.state.data.map(item => (
-          <div onClick={() => this.handleClicked(item.category, item.id)}>
-            <Link to={`/read/${item.id}`}>
+          <div key={item._id}>
+            <Link to={{ pathname: `/read/${item.id}`, state: { item } }}>
               <img src={item.img}></img>
               <div>{item.topic}</div>
             </Link>
-            <Route path={item.id}></Route>
+            <Route path={item._id}></Route>
           </div>
         ))}
       </div>
