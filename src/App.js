@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Route, Link as Router } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Home from './components/Home';
 import Read from './components/Read';
 import Nav from './components/Nav';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 
 class App extends Component {
   constructor(props) {
@@ -12,13 +14,13 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div>
-          <Nav></Nav>
-          <Route exact path="/" component={Home} />
-          <Route path="/read/:id" component={Read} />
-        </div>
-      </Router>
+      <div>
+        <Nav></Nav>
+        <Route exact path="/" component={Home} />
+        <Route path="/read/:id" component={Read} />
+        <Route path="/SignUp" component={SignUp} />
+        <Route path="/SignIn" component={SignIn} />
+      </div>
     );
   }
 }
