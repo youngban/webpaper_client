@@ -1,16 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
-const Nav = () => {
+const Nav = props => {
+  console.log(window.localStorage);
+  const { token } = props;
   return (
     <div className="Nav">
-      <Link to="/">Home</Link>
+      <Link to="/">WebPaper</Link>
       <Link to="/SignUp" className="signup">
         Sign up
       </Link>
-      <Link to="/SignIn" className="signin">
-        Sign in
-      </Link>
+      {token === false ? (
+        <Link to="/SignIn" className="signin">
+          Sign in
+        </Link>
+      ) : (
+        <div>
+          <Link to="/SignOut" className="signout">
+            SignOut
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

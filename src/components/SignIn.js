@@ -20,30 +20,45 @@ class SignIn extends React.Component {
       pw: e.target.value
     });
   }
+  // save(args) {
+  //   this.setState({
+  //     token: args
+  //   });
+  // }
   signIn() {
     if (this.state.email === '' || this.state.pw === '') {
       alert('이메일이나 비번을 입력해주세요');
     } else {
-      axios
-        .post('http://localhost:3001/api/login', {
-          email: this.state.email,
-          pw: this.state.pw
-        })
-        .then(res => console.log(res))
-        .catch(err => console.log('signinerr:' + err));
+      this.setState({
+        token: axios
+          .post('http://localhost:3001/api/login', {
+            email: this.state.email,
+            pw: this.state.pw
+          })
+          .then(res => console.log(res))
+          .then(this.props.history.push('/'))
+          .catch(err => console.log('signinerr:' + err))
+      });
+      console.log(window.localStorage);
     }
   }
+  // componentWillUnmount() {
+  //   this.setState({
+  //     token: res
+  //   });
+  //   console.log(this.state.token);
+  // }
   render() {
     return (
       <div>
         <h2>Sign In</h2>
-        <label for="email">email</label>
+        <label>email</label>
         <input
           type="text"
           onChange={e => this.handleEmailChange(e)}
           id="email"
         ></input>
-        <label for="pw">password</label>
+        <label>password</label>
         <input
           type="password"
           onChange={e => this.handlePasswordChange(e)}
