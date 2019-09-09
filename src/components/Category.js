@@ -1,77 +1,106 @@
 import React, { Component } from 'react';
-import fakeData from '../fakeData';
 import Articles from './Articles';
+import Axios from 'axios';
 
 class Category extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: [
-        'politics',
-        'economy',
-        'society',
-        'culture',
-        'world',
-        'entertain',
-        'sports'
-      ],
-      firstbtn: true,
-      btnstate: false
+      categories: [
+        {
+          category: '',
+          articles: [],
+          isClick: true
+        }
+      ]
     };
   }
-  //   선택된 category에 따라
-  // state를 필터링해서 article 컴포넌트에 맵핑으로 뿌려줘야 됨.
-  getFilterCategoryNews = paracategory => {
-    if (this.state.firstbtn) {
-      this.setState({
-        category: [paracategory],
-        firstbtn: false,
-        btnstate: !this.state.btnstate
-      });
-    } else {
-      if (!this.state.category.includes(paracategory)) {
+  // categories: {
+  //   sports: {
+  //     category: 'sports',
+  //     articles: [],
+  //     isClick: true
+  //   },
+  //   politics: {
+  //     category: 'politics',
+  //     articles: [],
+  //     isClick: true
+  //   }
+
+  // 다이내믹한 방법으로 리팩토링 할 수 없을까?
+  componentDidMount() {
+    Axios.all([
+      Axios.get(`http://localhost:3001/api/category?name=sports`),
+      Axios.get(`http://localhost:3001/api/category?name=politics`),
+      Axios.get(`http://localhost:3001/api/category?name=business`),
+      Axios.get(`http://localhost:3001/api/category?name=entertainment`),
+      Axios.get(`http://localhost:3001/api/category?name=products`),
+      Axios.get(`http://localhost:3001/api/category?name=scienceandtechnology`),
+      Axios.get(`http://localhost:3001/api/category?name=health`)
+    ]).then(
+      Axios.spread((cate1, cate2, cate3, cate4, cate5, cate6, cate7) => {
         this.setState({
-          category: this.state.category.concat(paracategory)
+          categories: [
+            {
+              category: cate1.data[0].category,
+              articles: cate1.data.slice(0, 10),
+              isClick: true
+            },
+            {
+              category: cate2.data[0].category,
+              articles: cate2.data.slice(0, 10),
+              isClick: true
+            },
+            {
+              category: cate3.data[0].category,
+              articles: cate3.data.slice(0, 10),
+              isClick: true
+            },
+            {
+              category: cate4.data[0].category,
+              articles: cate4.data.slice(0, 10),
+              isClick: true
+            },
+            {
+              category: cate5.data[0].category,
+              articles: cate5.data.slice(0, 10),
+              isClick: true
+            },
+            {
+              category: cate6.data[0].category,
+              articles: cate6.data.slice(0, 10),
+              isClick: true
+            },
+            {
+              category: cate7.data[0].category,
+              articles: cate7.data.slice(0, 10),
+              isClick: true
+            }
+          ]
         });
-      } else {
-        for (let i = 0; i < this.state.category.length; i++) {
-          if (this.state.category[i] === paracategory) {
-            this.setState({
-              category: this.state.category.filter(str => str !== paracategory)
-            });
-          }
-        }
-      }
-    }
-  };
+      })
+    );
+  }
+
   render() {
     return (
       <div>
-        <hr></hr>
-        <div className="categoryBtn">
-          <button onClick={e => this.getFilterCategoryNews('politics', e)}>
-            정치
-          </button>
-          <button onClick={e => this.getFilterCategoryNews('economy', e)}>
-            경제
-          </button>
-          <button onClick={e => this.getFilterCategoryNews('society', e)}>
-            사회
-          </button>
-          <button onClick={e => this.getFilterCategoryNews('culture', e)}>
-            문화
-          </button>
-          <button onClick={e => this.getFilterCategoryNews('world', e)}>
-            세계
-          </button>
-          <button onClick={e => this.getFilterCategoryNews('entertain', e)}>
-            연예
-          </button>
-          <button onClick={e => this.getFilterCategoryNews('sports', e)}>
-            스포츠
-          </button>
+        <div>
           <hr></hr>
-          <Articles data={fakeData} category={this.state.category} />
+          <div className="categoryBtn">
+            {this.state.categories.map(item => (
+              <button
+                key={item.category}
+                onClick={() => {
+                  // console.log(item, '-> true/false')
+                  this.setState(() => (item.isClick = !item.isClick));
+                }}
+              >
+                {item.category}
+              </button>
+            ))}
+          </div>
+          <Articles data={this.state.categories} />
         </div>
       </div>
     );

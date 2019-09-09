@@ -1,43 +1,30 @@
 import fakeData from '../fakeData';
 import { Link, Route } from 'react-router-dom';
-import axios from 'axios';
+import Axios from 'axios';
 import React, { Component } from 'react';
 
 class HotTopic extends Component {
   constructor(props) {
     super(props);
-    this.state = { category: '1', id: '2' };
+    this.state = { data: [] };
     // this.handleClicked = this.handleClicked.bind(this);
   }
 
-  handleClicked(category, id) {
-    console.log('!!!!!!!!');
-    this.setState = {
-      category: category,
-      id: id
-    };
-    console.log(this.state, 'STATE');
-    axios
-      .post(`http://localhost:3001/api/count`, {
-        _id: this.state.id,
-        category: this.state.category
-      })
-      .then(res => console.log(res))
-      .catch(error => {
-        console.log(error.response);
-      });
+  componentDidMount() {
+    Axios.get(`http://localhost:3001/api/hottopic`).then(res => {
+      const data = res.data;
+      this.setState({ data });
+    });
   }
-
-  componentDidMount() {}
 
   render() {
     return (
       <div>
-        {fakeData.map(item => (
+        {this.state.data.map(item => (
           <div onClick={() => this.handleClicked(item.category, item.id)}>
             <Link to={`/read/${item.id}`}>
               <img src={item.img}></img>
-              <div>{item.name}</div>
+              <div>{item.topic}</div>
             </Link>
             <Route path={item.id}></Route>
           </div>
