@@ -1,5 +1,11 @@
 .Nav {
   margin: 1rem;
-  padding: 1rem;
+  padding: 2rem;
   background: greenyellow;
+}
+.signup {
+  float: right;
+}
+.signin {
+  float: right;
 }
