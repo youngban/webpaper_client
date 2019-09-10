@@ -3,9 +3,6 @@ import './articles.css';
 import Axios from 'axios';
 
 class Articles extends Component {
-  // if (props.sports.isClick) {
-  //   console.log(props.sports.articles);
-  // }
   constructor(props) {
     super(props);
     this.state = { postId: '', category: '' };
@@ -35,8 +32,7 @@ class Articles extends Component {
       <div>
         {this.props.data.map(item =>
           item.isClick === true ? (
-            <div>
-              {console.log(item)}
+            <div key={item.category}>
               <ul>{item.category}</ul>
               {item.articles.map(article => (
                 <li
@@ -55,22 +51,3 @@ class Articles extends Component {
 }
 
 export default Articles;
-
-{
-  /* {props.data.map(item => {
-        if (props.category.includes(item.category)) {
-          return (
-            <a href={item.url} key={item.id} data={item} className="articles">
-              {item.name}
-            </a>
-          );
-        }
-        if (props.category.length === 0) {
-          return (
-            <a href={item.url} key={item.id} data={item} className="articles">
-              {item.name}
-            </a>
-          );
-        }
-      })} */
-}

@@ -3,11 +3,10 @@ import TopicInfo from './TopicInfo';
 import ArticleList from './ArticleList';
 import CommentList from './CommentList';
 
-const Read = () => {
+const Read = props => {
   return (
     <div>
-      <TopicInfo />
-      <ArticleList />
+      <TopicInfo info={props.location.state.item} />
       <CommentList />
     </div>
   );

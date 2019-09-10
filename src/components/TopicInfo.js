@@ -4,7 +4,9 @@ import React from 'react';
 const TopicInfo = props => {
   return (
     <div>
-      <h2>test</h2>
+      <h1>{props.info.topic}</h1>
+      <img src={props.info.img}></img>
+      <h3>{props.info.text}</h3>
     </div>
   );
 };
