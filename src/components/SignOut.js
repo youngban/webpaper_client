@@ -1,8 +1,12 @@
 import React from 'react';
 
-const SignOut = props => {
-  console.log(props);
-  //아직 미완성...........
-  return <div>{(props.data.isLogin = false)}</div>;
-};
+class SignOut extends React.Component {
+  componentDidMount() {
+    localStorage.removeItem('session');
+    window.location = '/';
+  }
+  render() {
+    return null;
+  }
+}
 export default SignOut;
