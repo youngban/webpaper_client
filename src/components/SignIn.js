@@ -26,27 +26,28 @@ class SignIn extends React.Component {
   //   });
   // }
   signIn() {
+    let token = '';
     if (this.state.email === '' || this.state.pw === '') {
       alert('이메일이나 비번을 입력해주세요');
     } else {
-      this.setState({
-        token: axios
-          .post('http://localhost:3001/api/login', {
-            email: this.state.email,
-            pw: this.state.pw
-          })
-          .then(res => console.log(res))
-          .then(this.props.history.push('/'))
-          .catch(err => console.log('signinerr:' + err))
-      });
-      console.log(window.localStorage);
+      axios
+        .post('http://localhost:3001/api/login', {
+          email: this.state.email,
+          pw: this.state.pw
+        })
+        .then(res => {
+          token = res;
+          console.log('로그인후token값:' + this.state.token);
+        })
+        .then(this.props.history.push('/'))
+        .catch(err => alert('잘못된 요청입니다:' + err));
     }
   }
   // componentWillUnmount() {
   //   this.setState({
-  //     token: res
+  //     token: token
   //   });
-  //   console.log(this.state.token);
+  //   console.log('로그인후token값2:'+this.state.token);
   // }
   render() {
     return (
