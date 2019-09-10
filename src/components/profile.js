@@ -39,17 +39,19 @@ class Profile extends React.Component {
         <button onClick={() => this.printBookmark()}>북마크</button>
         <button onClick={() => this.printComments()}>댓글</button>
 
-        {this.state.bookmark.map(k =>
+        {this.state.bookmark.map((k, i) =>
           k && this.state.val === 'bookmark' ? (
-            <div>{k.name}</div>
+            <a key={i + new Date()} href={k.url}>
+              {k.name}
+            </a>
           ) : (
             <React.Fragment></React.Fragment>
           )
         )}
 
-        {this.state.comments.map(k =>
+        {this.state.comments.map((k, i) =>
           k && this.state.val === 'comments' ? (
-            <div>{k.text}</div>
+            <a key={i + new Date()}>{k.text}</a>
           ) : (
             <React.Fragment></React.Fragment>
           )
