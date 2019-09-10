@@ -26,7 +26,6 @@ class SignIn extends React.Component {
   //   });
   // }
   signIn() {
-    let token = '';
     if (this.state.email === '' || this.state.pw === '') {
       alert('이메일이나 비번을 입력해주세요');
     } else {
@@ -35,10 +34,7 @@ class SignIn extends React.Component {
           email: this.state.email,
           pw: this.state.pw
         })
-        .then(res => {
-          token = res;
-          console.log('로그인후token값:' + this.state.token);
-        })
+        .then(res => console.log(res))
         .then(this.props.history.push('/'))
         .catch(err => alert('잘못된 요청입니다:' + err));
     }
