@@ -23,13 +23,20 @@ class SignUp extends Component {
   submitSignUp() {
     if (this.state.email === '' || this.state.pw === '') {
       alert('이메일이나 비번을 입력해주세요');
+    } else if (this.state.email.length < 5 || this.state.pw.length < 5) {
+      alert('이메일이나 비밀번호를 5자이상으로 작성하세요');
     } else {
       axios
         .post('http://localhost:3001/api/user/signup', {
           email: this.state.email,
           pw: this.state.pw
         })
-        .then(res => console.log(res))
+        .then(res =>
+          res.status === 200
+            ? alert('회원가입이 완료되었습니다')
+            : alert('잘못된 요청으로 회원가입이 되지않았습니다.')
+        )
+        .then(this.props.history.push('/'))
         .catch(err => console.log('signuperr:' + err));
     }
   }
@@ -37,7 +44,7 @@ class SignUp extends Component {
     return (
       <div className="signupForm">
         <h2>회원 가입</h2>
-        <label for="InputEmail">이메일</label>
+        <label>이메일</label>(5자 이상이어야 합니다)
         <input
           type="text"
           required
@@ -46,7 +53,7 @@ class SignUp extends Component {
           onChange={e => this.handleEmailChange(e)}
         ></input>
         <br></br>
-        <label for="InputPassword">비밀번호</label>
+        <label>비밀번호</label>(5자 이상이어야 합니다)
         <input
           type="password"
           required

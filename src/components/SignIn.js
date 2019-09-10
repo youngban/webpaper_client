@@ -20,6 +20,11 @@ class SignIn extends React.Component {
       pw: e.target.value
     });
   }
+  // save(args) {
+  //   this.setState({
+  //     token: args
+  //   });
+  // }
   signIn() {
     if (this.state.email === '' || this.state.pw === '') {
       alert('이메일이나 비번을 입력해주세요');
@@ -30,20 +35,27 @@ class SignIn extends React.Component {
           pw: this.state.pw
         })
         .then(res => console.log(res))
-        .catch(err => console.log('signinerr:' + err));
+        .then(this.props.history.push('/'))
+        .catch(err => alert('잘못된 요청입니다:' + err));
     }
   }
+  // componentWillUnmount() {
+  //   this.setState({
+  //     token: token
+  //   });
+  //   console.log('로그인후token값2:'+this.state.token);
+  // }
   render() {
     return (
       <div>
         <h2>Sign In</h2>
-        <label for="email">email</label>
+        <label>email</label>
         <input
           type="text"
           onChange={e => this.handleEmailChange(e)}
           id="email"
         ></input>
-        <label for="pw">password</label>
+        <label>password</label>
         <input
           type="password"
           onChange={e => this.handlePasswordChange(e)}
