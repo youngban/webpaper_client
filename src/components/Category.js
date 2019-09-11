@@ -92,7 +92,6 @@ class Category extends Component {
               <button
                 key={item.category}
                 onClick={() => {
-                  // console.log(item, '-> true/false')
                   this.setState(() => (item.isClick = !item.isClick));
                 }}
               >
