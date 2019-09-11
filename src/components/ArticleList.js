@@ -1,19 +1,17 @@
 import React from 'react';
 
 const ArticleList = props => {
-  console.log(props);
-
   return (
     <div>
-      {props.articles.map(item => (
-        <p>
+      {props.articles.map((item, i) => (
+        <div key={i}>
           <a
             style={{ textDecoration: 'none', color: '#000000' }}
             href={item.url}
           >
             {item.name}
           </a>
-        </p>
+        </div>
       ))}
     </div>
   );

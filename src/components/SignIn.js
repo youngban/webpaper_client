@@ -36,9 +36,7 @@ class SignIn extends React.Component {
           pw: this.state.pw
         })
         .then(res => {
-          console.log(res);
           localStorage.setItem('session', res.data);
-          console.log(localStorage.getItem('session'));
           window.location = '/';
         })
         .catch(err => alert('비번이나 아이디 틀림 ㅋ'));

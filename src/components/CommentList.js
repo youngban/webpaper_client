@@ -6,7 +6,6 @@ class CommentList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userid: '',
       hotTopicId: this.props.id,
       text: '',
       date: new Date().toJSON()
@@ -16,10 +15,12 @@ class CommentList extends Component {
   }
 
   componentDidMount() {
+    console.log(this.state.hotTopicId);
     Axios.get(
-      `http://localhost:3001/api/gettopiccomments?hottopicid=${this.props.id}`
+      `http://localhost:3001/api/gettopiccomments?hottopicid=${this.state.hotTopicId}`
     ).then(res => {
-      console.log(res);
+      this.setState({ comments: res.data });
+      console.log(this.state.comments);
     });
   }
 
@@ -29,13 +30,28 @@ class CommentList extends Component {
   }
 
   handleSubmit(e) {
+    const token = localStorage.getItem('session');
     e.preventDefault();
-    Axios.post(`http://localhost:3001/api/comment`, {
-      userid: this.state.userid,
-      hotTopicId: this.state.id,
-      text: this.state.text,
-      date: this.state.date
-    });
+    Axios.post(
+      `http://localhost:3001/api/comment`,
+      {
+        hotTopicId: this.state.hotTopicId,
+        text: this.state.text,
+        date: this.state.date
+      },
+      {
+        headers: {
+          'x-auth-token': token
+        }
+      }
+    )
+      .then(() => {
+        window.location = `/read/${this.state.hotTopicId}`;
+      })
+      .catch(err => {
+        alert('로긴 ㄱ');
+        window.location = `/read/${this.state.hotTopicId}`;
+      });
   }
 
   render() {
@@ -47,8 +63,20 @@ class CommentList extends Component {
             value={this.state.text}
             onChange={this.handleChange}
           />
+          {this.state.comments !== undefined ? (
+            this.state.comments.map((v, i) => (
+              <div key={i}>
+                <div>
+                  <span>{v.userId}</span> <span>{v.date}</span>
+                </div>
+                <div>{v.text}</div>
+              </div>
+            ))
+          ) : (
+            <React.Fragment></React.Fragment>
+          )}
           <button type="submit" value="Submit">
-            Post
+            댓글등록
           </button>
         </form>
       </div>

@@ -41,9 +41,14 @@ class Profile extends React.Component {
 
         {this.state.bookmark.map((k, i) =>
           k && this.state.val === 'bookmark' ? (
-            <a key={i + new Date()} href={k.url}>
-              {k.name}
-            </a>
+            <div key={i + new Date()}>
+              <a
+                style={{ textDecoration: 'none', color: '#000000' }}
+                href={k.url}
+              >
+                {k.name}
+              </a>
+            </div>
           ) : (
             <React.Fragment></React.Fragment>
           )
@@ -51,7 +56,10 @@ class Profile extends React.Component {
 
         {this.state.comments.map((k, i) =>
           k && this.state.val === 'comments' ? (
-            <a key={i + new Date()}>{k.text}</a>
+            <div key={i + new Date()}>
+              <span>{k.text}</span>
+              <span>{k.date}</span>
+            </div>
           ) : (
             <React.Fragment></React.Fragment>
           )
