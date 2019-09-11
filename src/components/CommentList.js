@@ -76,7 +76,7 @@ class CommentList extends Component {
             <React.Fragment></React.Fragment>
           )}
           <button type="submit" value="Submit">
-            댓글등록
+            등록
           </button>
         </form>
       </div>
