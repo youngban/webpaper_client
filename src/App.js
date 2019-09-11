@@ -19,7 +19,9 @@ class App extends Component {
       this.setState({
         user
       });
-    } catch (ex) {}
+    } catch (ex) {
+      console.log(ex);
+    }
   }
 
   render() {

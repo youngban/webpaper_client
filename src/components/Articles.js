@@ -35,11 +35,14 @@ class Articles extends Component {
             <div key={item.category}>
               <ul>{item.category}</ul>
               {item.articles.map(article => (
-                <li
-                  key={article._id}
-                  onClick={() => this.handleClicked(article)}
-                >
-                  {article.name}
+                <li key={article._id}>
+                  <a
+                    style={{ textDecoration: 'none', color: '#000000' }}
+                    href={article.url}
+                    onClick={() => this.handleClicked(article)}
+                  >
+                    {article.name}
+                  </a>
                 </li>
               ))}
             </div>
