@@ -6,10 +6,11 @@ class SignIn extends React.Component {
     super(props);
     this.state = {
       email: '',
-      pw: '',
-      token: false
+      pw: ''
     };
   }
+  componentDidMount() {}
+
   handleEmailChange(e) {
     this.setState({
       email: e.target.value
@@ -34,9 +35,13 @@ class SignIn extends React.Component {
           email: this.state.email,
           pw: this.state.pw
         })
-        .then(res => console.log(res))
-        .then(this.props.history.push('/'))
-        .catch(err => alert('잘못된 요청입니다:' + err));
+        .then(res => {
+          console.log(res);
+          localStorage.setItem('session', res.data);
+          console.log(localStorage.getItem('session'));
+          window.location = '/';
+        })
+        .catch(err => alert('비번이나 아이디 틀림 ㅋ'));
     }
   }
   // componentWillUnmount() {
