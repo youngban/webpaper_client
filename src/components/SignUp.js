@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SignUp.css';
 import axios from 'axios';
-
+import Button from 'antd/es/button';
 class SignUp extends Component {
   constructor(props) {
     super(props);
@@ -56,8 +56,8 @@ class SignUp extends Component {
           id="InputPassword"
           onChange={e => this.handlePasswordChange(e)}
         ></input>
-        <hr></hr>
-        <button onClick={() => this.submitSignUp()}>회원가입!</button>
+        <br></br>
+        <Button onClick={() => this.submitSignUp()}>회원가입!</Button>
       </div>
     );
   }

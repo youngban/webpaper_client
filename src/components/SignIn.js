@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-
+import './SignIn.css';
+import Button from 'antd/es/button';
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
@@ -52,7 +53,7 @@ class SignIn extends React.Component {
   // }
   render() {
     return (
-      <div>
+      <div className="signInForm">
         <h2>Sign In</h2>
         <label>email</label>
         <input
@@ -60,13 +61,15 @@ class SignIn extends React.Component {
           onChange={e => this.handleEmailChange(e)}
           id="email"
         ></input>
+        <br></br>
         <label>password</label>
         <input
           type="password"
           onChange={e => this.handlePasswordChange(e)}
           id="pw"
         ></input>
-        <button onClick={() => this.signIn()}>Sign In</button>
+        <br></br>
+        <Button onClick={() => this.signIn()}>Sign In</Button>
       </div>
     );
   }

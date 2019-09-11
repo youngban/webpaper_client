@@ -3,4 +3,7 @@ label {
 }
 .signupForm {
   text-align: center;
+  border: 1px solid blue;
+  margin: 3rem;
+  background-color: rgb(240, 212, 212);
 }
