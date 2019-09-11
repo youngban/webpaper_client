@@ -7,7 +7,7 @@ const Read = props => {
   return (
     <div>
       <TopicInfo info={props.location.state.item} />
-      <CommentList />
+      <CommentList id={props.location.state.item._id} />
     </div>
   );
 };
