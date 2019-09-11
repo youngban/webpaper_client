@@ -27,14 +27,23 @@ class Articles extends Component {
     );
   };
   addBookMark(purl, pcategory, e) {
-    console.log('넘어간url:', purl, '넘어간카테고리:', pcategory);
+    const token = localStorage.getItem('session');
+
     e.preventDefault();
-    Axios.post('http://localhost:3001/api/user/bookmark', {
-      url: purl,
-      category: pcategory
-    })
+    Axios.post(
+      'http://localhost:3001/api/user/bookmark',
+      {
+        url: purl,
+        category: pcategory
+      },
+      {
+        headers: {
+          'x-auth-token': token
+        }
+      }
+    )
       .then(res => console.log(res))
-      .catch(err => console.log('addbookmark에러:' + err));
+      .catch(err => alert('로그인 ㄱ'));
   }
   render() {
     return (
@@ -44,11 +53,14 @@ class Articles extends Component {
             <div key={item.category}>
               <ul>{item.category}</ul>
               {item.articles.map(article => (
-                <li
-                  key={article._id}
-                  onClick={() => this.handleClicked(article)}
-                >
-                  {article.name}
+                <div key={article._id}>
+                  <a
+                    href={article.url}
+                    style={{ textDecoration: 'none', color: '#000000' }}
+                    onClick={() => this.handleClicked(article)}
+                  >
+                    {article.name}
+                  </a>
                   <a
                     href="#"
                     onClick={e =>
@@ -58,7 +70,7 @@ class Articles extends Component {
                   >
                     해당기사 북마크 추가하기
                   </a>
-                </li>
+                </div>
               ))}
             </div>
           ) : null

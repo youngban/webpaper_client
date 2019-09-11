@@ -4,6 +4,7 @@ import ArticleList from './ArticleList';
 import CommentList from './CommentList';
 
 const Read = props => {
+  console.log(props.location.state.item._id);
   return (
     <div>
       <TopicInfo info={props.location.state.item} />
