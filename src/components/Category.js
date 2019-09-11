@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Articles from './Articles';
 import Axios from 'axios';
-
+import Button from 'antd/es/button';
 class Category extends Component {
   constructor(props) {
     super(props);
@@ -89,14 +89,14 @@ class Category extends Component {
           <hr></hr>
           <div className="categoryBtn">
             {this.state.categories.map(item => (
-              <button
+              <Button
                 key={item.category}
                 onClick={() => {
                   this.setState(() => (item.isClick = !item.isClick));
                 }}
               >
                 {item.category}
-              </button>
+              </Button>
             ))}
           </div>
           <Articles data={this.state.categories} />

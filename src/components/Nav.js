@@ -5,7 +5,9 @@ const Nav = props => {
   const { user } = props;
   return (
     <div className="Nav">
-      <Link to="/">WebPaper</Link>
+      <Link to="/" className="title">
+        WebPaper
+      </Link>
 
       {!user && (
         <React.Fragment>
