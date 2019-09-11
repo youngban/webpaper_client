@@ -31,13 +31,9 @@ class SignUp extends Component {
           email: this.state.email,
           pw: this.state.pw
         })
-        .then(res =>
-          res.status === 200
-            ? alert('회원가입이 완료되었습니다')
-            : alert('잘못된 요청으로 회원가입이 되지않았습니다.')
-        )
+        .then(res => console.log(res))
         .then(this.props.history.push('/'))
-        .catch(err => console.log('signuperr:' + err));
+        .catch(err => console.log('signup err:' + err));
     }
   }
   render() {
