@@ -1,23 +1,40 @@
+@import '~antd/dist/antd.css';
 .articles {
   display: block;
   font-size: 20px;
   margin: 1rem;
 }
-
+ul {
+  font-weight: bold;
+  font-size: 16px;
+  color: black;
+}
+li {
+  padding-left: 2px;
+}
+li:hover {
+  color: red;
+  font-weight: bold;
+  font-style: italic;
+}
 button {
-  border-radius: 20%;
+  /* border-radius: 20%;
   padding: 1rem;
   background: linear-gradient(
     to left,
     cyan,
     rgb(62, 228, 62),
     rgb(49, 161, 14)
-  );
+  ); */
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .categoryBtn {
   padding: 3px;
 }
-.ad-book-mark{
+.articles-wrap {
+  padding-left: 3px;
+  background: rgb(219, 217, 217);
+}
+.ad-book-mark {
   float: right;
 }

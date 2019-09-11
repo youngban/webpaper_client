@@ -47,7 +47,7 @@ class Articles extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="articles-wrap">
         {this.props.data.map(item =>
           item.isClick === true ? (
             <div key={item.category}>

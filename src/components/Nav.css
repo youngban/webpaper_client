@@ -1,14 +1,35 @@
+@import '~antd/dist/antd.css';
 .Nav {
   margin: 1rem;
   padding: 2rem;
   background: greenyellow;
 }
+.title {
+  position: relative;
+  top: 0px;
+  left: 45%;
+  font-size: 35px;
+  text-decoration: none;
+  color: black;
+}
 .signup {
+  font-size: 20px;
+  position: relative;
+  top: 0px;
+  right: 5%;
   float: right;
 }
 .signin {
+  font-size: 20px;
+  position: relative;
+  top: 0px;
+  right: 10%;
   float: right;
 }
-.signout{
+.signout {
+  font-size: 20px;
+  position: relative;
+  top: 0px;
+  right: 10%;
   float: right;
 }

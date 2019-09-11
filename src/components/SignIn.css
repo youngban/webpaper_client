@@ -1,0 +1,7 @@
+@import '~antd/dist/antd.css';
+.signInForm {
+  text-align: center;
+  border: 1px solid rgb(155, 98, 108);
+  margin: 3rem;
+  background-color: antiquewhite;
+}
