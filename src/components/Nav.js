@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.css';
-import { get } from 'http';
 import Axios from 'axios';
 
 const Nav = props => {
@@ -10,13 +9,14 @@ const Nav = props => {
     <div className="Nav">
       <Link to="/">WebPaper</Link>
       <button
+        className="button"
         onClick={() => {
           Axios.get('http://localhost:3001/api/hottopic/get').catch(err => {
             console.log(err);
           });
         }}
       >
-        토픽기사선정
+        Refresh
       </button>
       {!user && (
         <React.Fragment>

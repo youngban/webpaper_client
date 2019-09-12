@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Articles from './Articles';
 import Axios from 'axios';
 import Button from 'antd/es/button';
+
+const Server = `https://webpaperserver.herokuapp.com/api`;
 class Category extends Component {
   constructor(props) {
     super(props);

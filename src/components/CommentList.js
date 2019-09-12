@@ -26,7 +26,6 @@ class CommentList extends Component {
 
   handleChange(e) {
     this.setState({ text: e.target.value });
-    // console.log(localStorage.getItem('session'));
   }
 
   handleSubmit(e) {

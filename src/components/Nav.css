@@ -12,6 +12,9 @@
   text-decoration: none;
   color: black;
 }
+.button {
+  margin: 1rem;
+}
 .signup {
   font-size: 20px;
   position: relative;

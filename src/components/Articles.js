@@ -68,7 +68,7 @@ class Articles extends Component {
                     }
                     className="ad-book-mark"
                   >
-                    해당기사 북마크 추가하기
+                    북마크 추가하기
                   </a>
                 </div>
               ))}
