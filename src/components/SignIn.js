@@ -22,11 +22,7 @@ class SignIn extends React.Component {
       pw: e.target.value
     });
   }
-  // save(args) {
-  //   this.setState({
-  //     token: args
-  //   });
-  // }
+
   signIn() {
     if (this.state.email === '' || this.state.pw === '') {
       alert('이메일이나 비번을 입력해주세요');
@@ -43,12 +39,7 @@ class SignIn extends React.Component {
         .catch(err => alert('비번이나 아이디 틀림 ㅋ'));
     }
   }
-  // componentWillUnmount() {
-  //   this.setState({
-  //     token: token
-  //   });
-  //   console.log('로그인후token값2:'+this.state.token);
-  // }
+
   render() {
     return (
       <div className="signInForm">

@@ -9,7 +9,6 @@ class HotTopic extends Component {
   constructor(props) {
     super(props);
     this.state = { data: [] };
-    // this.handleClicked = this.handleClicked.bind(this);
   }
 
   componentDidMount() {
@@ -39,13 +38,3 @@ class HotTopic extends Component {
 }
 
 export default HotTopic;
-
-{
-  /* <div key={item._id}>
-              <Link to={{ pathname: `/read/${item.id}`, state: { item } }}>
-                <img src={item.img}></img>
-                <div>{item.topic}</div>
-              </Link>
-              <Route path={item._id}></Route>
-            </div> */
-}
