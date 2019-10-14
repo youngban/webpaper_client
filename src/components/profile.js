@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 axios.defaults.headers.common['x-auth-token'] = localStorage.getItem('session');
 
 class Profile extends React.Component {

@@ -17,17 +17,6 @@ class Category extends Component {
       ]
     };
   }
-  // categories: {
-  //   sports: {
-  //     category: 'sports',
-  //     articles: [],
-  //     isClick: true
-  //   },
-  //   politics: {
-  //     category: 'politics',
-  //     articles: [],
-  //     isClick: true
-  //   }
 
   // 다이내믹한 방법으로 리팩토링 할 수 없을까?
   componentDidMount() {
