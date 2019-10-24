@@ -1,68 +1,37 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WebPaper는 기존 뉴스플랫폼을 개선하고자하는 의도로 기획하고 프로젝트를 진행했습니다.
 
-## Available Scripts
+기존 뉴스포털의 문제점
+- 너무 많은 정보들을 중복해서 전달, 어떤 주제들이 있는지 한눈에 식별하기 힘들다.
+- 보기 싫은 정보들이 지속해서 노출되서 어쩔수 없이 확인하게 된다.
+- 언론사를 구독할수 있지만, 같은 언론사 내에서도 기자들에 따라 기사 퀄리티의 수준은 다양하다.
 
-In the project directory, you can run:
+### webpaper 프로젝트는?
 
-### `npm start`
+- 사용자 중심의 뉴스피드
+(기자들의 팔로우 기능, 개인별로 특정단어 필터링기능)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 이미지 중심의 뉴스플랫폼
+(모바일대비 웹에서 가질수 있는 강점인 이미지 활용해 어떤 뉴스가 이슈인지 직관적인 정보전달)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+위와 같은 서비스를 기획을 했고 저는 팀장을 맡아서 진행했습니다.
 
-### `npm test`
+프로젝트의 시작은 서비스 기획, 기능별 진행단계 설정, 사용할 스택 선정, 팀원역할, 팀규칙설정에 관한 논의부터 시작했습니다.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 기능별 진행단계
 
-### `npm run build`
+Minimum
+- 선택한 주제들의 기사만 렌더링(기사필터링)
+- 조회수에 따라 메인화면 핫토픽 렌더링
+- 로그인기능 구현(DB)
+- 댓글기능
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Advanced
+- 개인 뉴스피드 만들기(기자 팔로우, 기사 북마크)
+- 특정 단어 필터링기능
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Nightmare
+- 지역별로 관심있는 기사 체크하기
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### 사용한 스택
+Front : React
+Backend : Node.js, MongoDB, JWT
